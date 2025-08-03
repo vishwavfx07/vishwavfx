@@ -879,16 +879,24 @@
                 padding: 0.8rem;
                 min-width: 80px;
                 height: 80px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
             
             .tech-item i {
                 font-size: 1.2rem;
                 margin-bottom: 0.3rem;
+                flex-shrink: 0;
             }
             
             .tech-item span {
                 font-size: 0.6rem;
                 padding: 0 0.3rem;
+                text-align: center;
+                line-height: 1.2;
+                flex-shrink: 0;
             }
             
             .contact-content {
@@ -985,17 +993,24 @@
                 padding: 0.6rem;
                 min-width: 70px;
                 height: 70px;
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                justify-content: center;
             }
             
             .tech-item i {
                 font-size: 1rem;
                 margin-bottom: 0.2rem;
+                flex-shrink: 0;
             }
             
             .tech-item span {
                 font-size: 0.5rem;
                 padding: 0 0.2rem;
                 line-height: 1.2;
+                text-align: center;
+                flex-shrink: 0;
             }
             
             .cta-button {
@@ -1018,6 +1033,31 @@
             
             .about-text p {
                 font-size: 0.9rem;
+            }
+            
+            /* Extra small mobile optimization */
+            @media (max-width: 360px) {
+                .tech-items {
+                    grid-template-columns: repeat(2, 1fr);
+                    gap: 0.5rem;
+                    padding: 0 0.3rem;
+                }
+                
+                .tech-item {
+                    padding: 0.5rem;
+                    min-width: 60px;
+                    height: 60px;
+                }
+                
+                .tech-item i {
+                    font-size: 0.9rem;
+                    margin-bottom: 0.2rem;
+                }
+                
+                .tech-item span {
+                    font-size: 0.4rem;
+                    padding: 0 0.1rem;
+                }
             }
         }
 
