@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects - Vishwa FX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #00f2fe;
+            --text-color: #ffffff;
+            --gray-text: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: var(--text-color);
+            background: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        .projects-container {
+            padding: 8rem 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.5rem;
+            margin-bottom: 4rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            align-items: start;
+        }
+
+        .project-card {
+            position: relative;
+            aspect-ratio: 16/9;
+            overflow: hidden;
+            border-radius: 4px;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover img {
+            transform: scale(1.1);
+        }
+
+        .project-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.7);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .project-card:hover .project-overlay {
+            opacity: 1;
+        }
+
+        .project-overlay h3 {
+            color: #fff;
+            font-size: 1.5rem;
+            margin-bottom: 0.5rem;
+            text-transform: uppercase;
+        }
+
+        .project-overlay p {
+            color: #ccc;
+            margin-bottom: 1.5rem;
+        }
+
+        .view-project {
+            display: inline-block;
+            padding: 0.8rem 1.5rem;
+            background: var(--accent-color);
+            color: #000;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+        }
+
+        .view-project:hover {
+            background: #fff;
+            transform: translateY(-3px);
+        }
+
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="projects-container">
+        <h2 class="section-title">Projects</h2>
+        <div class="projects-grid">
+            <div class="project-card">
+                <img src="../assets/images/projects/fire-effects.jpg" alt="Fire Effects">
+                <div class="project-overlay">
+                    <h3>Fire Effects</h3>
+                    <p>Complex particle systems and combustion simulation</p>
+                    <a href="#fire" class="view-project">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="../assets/images/projects/ocean-simulation.jpg" alt="Ocean Simulation">
+                <div class="project-overlay">
+                    <h3>Ocean Simulation</h3>
+                    <p>Advanced water effects with realistic wave dynamics</p>
+                    <a href="#ocean" class="view-project">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="../assets/images/projects/Destruction-FX.jpg" alt="Destruction FX">
+                <div class="project-overlay">
+                    <h3>Destruction FX</h3>
+                    <p>Building collapse and structural damage simulation</p>
+                    <a href="#destruction" class="view-project">View Project</a>
+                </div>
+            </div>
+            <div class="project-card">
+                <img src="../assets/images/projects/Particle Systems.jpg" alt="Particle Systems">
+                <div class="project-overlay">
+                    <h3>Particle Systems</h3>
+                    <p>Advanced particle dynamics and behavior</p>
+                    <a href="#particles" class="view-project">View Project</a>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Skills & Expertise - Vishwa FX Artist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #00f2fe;
+            --text-color: #ffffff;
+            --gray-text: #ffffff;
+            --heading-font: 'Inter', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background: var(--primary-color);
+            line-height: 1.6;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 3rem 5% 2rem;
+        }
+
+        .back-button {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            color: var(--text-color);
+            text-decoration: none;
+            font-family: var(--heading-font);
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .artstation-link {
+            position: fixed;
+            top: 2rem;
+            right: 2rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 4px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .linkedin-link {
+            position: fixed;
+            top: 2rem;
+            right: 5rem;
+            z-index: 1000;
+            background: rgba(255, 255, 255, 0.1);
+            padding: 0.8rem;
+            border-radius: 4px;
+            color: var(--text-color);
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .artstation-link:hover,
+        .linkedin-link:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+        }
+
+        .artstation-link i,
+        .linkedin-link i {
+            font-size: 1.2rem;
+        }
+
+        .skills-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .skills-header h1 {
+            font-size: 2.5rem;
+            font-weight: 600;
+            margin-bottom: 0.8rem;
+            font-family: 'Inter', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills-header p {
+            font-size: 1rem;
+            color: var(--text-color);
+            opacity: 0.8;
+            max-width: 500px;
+            margin: 0 auto;
+        }
+
+        .skills-container {
+            display: grid;
+            grid-template-columns: 1fr;
+            gap: 2rem;
+        }
+
+        .skill-category {
+            background: rgba(255, 255, 255, 0.02);
+            padding: 1.5rem;
+        }
+
+        .category-header {
+            margin-bottom: 1.5rem;
+            padding-bottom: 0.8rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .category-header h2 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            margin-bottom: 0.3rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--accent-color);
+        }
+
+        .category-header p {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        .skill-items {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 1rem;
+        }
+
+        .skill-item {
+            background: rgba(255, 255, 255, 0.03);
+            padding: 1.2rem;
+        }
+
+        .skill-item-header {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-icon {
+            font-size: 1.2rem;
+            margin-right: 0.8rem;
+            color: var(--accent-color);
+        }
+
+        .skill-title {
+            font-size: 1.1rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .skill-description {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            color: var(--text-color);
+            opacity: 0.9;
+            margin-bottom: 0.8rem;
+        }
+
+        .skill-details {
+            margin-top: 0.8rem;
+            padding-top: 0.8rem;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .skill-details h3 {
+            font-size: 0.9rem;
+            margin-bottom: 0.6rem;
+            color: var(--accent-color);
+        }
+
+        .skill-details ul {
+            list-style: none;
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 0.4rem;
+        }
+
+        .skill-details li {
+            position: relative;
+            padding-left: 1rem;
+            font-size: 0.85rem;
+        }
+
+        .skill-details li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 2rem 5% 1.5rem;
+            }
+
+            .skills-header h1 {
+                font-size: 2rem;
+            }
+
+            .skill-category {
+                padding: 1.2rem;
+            }
+
+            .skill-items {
+                grid-template-columns: 1fr;
+            }
+
+            .category-header h2 {
+                font-size: 1.3rem;
+            }
+        }
+
+        /* Add custom ArtStation icon */
+        .fa-artstation:before {
+            content: "A";
+            font-family: Arial, sans-serif;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-button">Back to Home</a>
+    <a href="https://www.linkedin.com/in/vishwa-p-64b85a1bb?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app" target="_blank" class="linkedin-link" title="View my LinkedIn profile">
+        <i class="fab fa-linkedin"></i>
+    </a>
+    <a href="https://www.artstation.com/vishwa_art" target="_blank" class="artstation-link" title="View my ArtStation profile">
+        <i class="fa-brands fa-artstation"></i>
+    </a>
+
+    <div class="container">
+        <div class="skills-header">
+            <h1>Skills & Expertise</h1>
+            <p>Specialized in creating dynamic and realistic visual effects for film and media</p>
+        </div>
+
+        <div class="skills-container">
+            <!-- FX Section -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <h2>FX</h2>
+                    <p>Advanced expertise in dynamic effects and simulations</p>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-fire"></i>
+                            </div>
+                            <h3 class="skill-title">Pyro FX</h3>
+                        </div>
+                        <p class="skill-description">
+                            Expert in creating realistic fire, smoke, and explosion effects using Houdini's Pyro solver. Specializing in large-scale destruction sequences and atmospheric effects.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Fire and smoke simulation</li>
+                                <li>Explosion effects</li>
+                                <li>Atmospheric effects</li>
+                                <li>Destruction sequences</li>
+                                <li>Custom pyro setups</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3 class="skill-title">Destruction FX</h3>
+                        </div>
+                        <p class="skill-description">
+                            Advanced expertise in rigid body dynamics and destruction simulation. Creating realistic building collapses, vehicle crashes, and environmental destruction.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Rigid body dynamics</li>
+                                <li>Building destruction</li>
+                                <li>Vehicle crashes</li>
+                                <li>Debris simulation</li>
+                                <li>Fracture patterns</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-water"></i>
+                            </div>
+                            <h3 class="skill-title">Fluid FX</h3>
+                        </div>
+                        <p class="skill-description">
+                            Specialized in fluid simulation for water, ocean, and liquid effects. Creating realistic water interactions, splashes, and complex fluid behaviors.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Water simulation</li>
+                                <li>Ocean effects</li>
+                                <li>Liquid interactions</li>
+                                <li>Splash effects</li>
+                                <li>Custom fluid setups</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-atom"></i>
+                            </div>
+                            <h3 class="skill-title">Particle FX</h3>
+                        </div>
+                        <p class="skill-description">
+                            Expert in particle systems for magical effects, environmental elements, and abstract visualizations. Creating complex particle behaviors and custom setups.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Magical effects</li>
+                                <li>Environmental particles</li>
+                                <li>Abstract visualizations</li>
+                                <li>Custom particle systems</li>
+                                <li>Particle instancing</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Compositing Section -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <h2>Compositing</h2>
+                    <p>Advanced compositing and post-production expertise</p>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-film"></i>
+                            </div>
+                            <h3 class="skill-title">Compositing</h3>
+                        </div>
+                        <p class="skill-description">
+                            Expert in compositing and post-production, combining various elements to create seamless visual effects. Specializing in Nuke workflows.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Nuke compositing</li>
+                                <li>Multi-pass compositing</li>
+                                <li>Integration with FX elements</li>
+                                <li>Final output delivery</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Modeling & Texturing Section -->
+            <div class="skill-category">
+                <div class="category-header">
+                    <h2>Modeling & Texturing</h2>
+                    <p>Expertise in 3D modeling and material creation</p>
+                </div>
+                <div class="skill-items">
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-cube"></i>
+                            </div>
+                            <h3 class="skill-title">3D Modeling</h3>
+                        </div>
+                        <p class="skill-description">
+                            Proficient in creating detailed 3D models for visual effects. Specializing in both hard-surface and organic modeling techniques.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Props modeling</li>
+                                <li>Hard-surface modeling</li>
+                                <li>Environment assets</li>
+                                <li>UV unwrapping</li>
+                                <li>Topology optimization</li>
+                                <li>Detail sculpting</li>
+                            </ul>
+                        </div>
+                    </div>
+
+                    <div class="skill-item">
+                        <div class="skill-item-header">
+                            <div class="skill-icon">
+                                <i class="fas fa-palette"></i>
+                            </div>
+                            <h3 class="skill-title">Texturing & Materials</h3>
+                        </div>
+                        <p class="skill-description">
+                            Expert in creating high-quality textures and materials for visual effects. Specializing in photorealistic texturing and material creation.
+                        </p>
+                        <div class="skill-details">
+                            <h3>Key Capabilities</h3>
+                            <ul>
+                                <li>Photorealistic texturing</li>
+                                <li>Material creation</li>
+                                <li>Substance Painter workflow</li>
+                                <li>PBR material setup</li>
+                                <li>Texture painting</li>
+                                <li>Look development</li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html> 

@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technologies - Vishwa FX</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #00f2fe;
+            --text-color: #ffffff;
+            --gray-text: #cccccc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            color: var(--text-color);
+            background: var(--primary-color);
+            line-height: 1.6;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--secondary-color);
+            text-decoration: none;
+            letter-spacing: 1px;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            color: var(--text-color);
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 1.1rem;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links a.active {
+            color: var(--accent-color);
+        }
+
+        /* Technologies Section */
+        .technologies {
+            padding: 8rem 5%;
+            background: #000;
+        }
+
+        .technologies-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .technologies-header {
+            text-align: center;
+            margin-bottom: 4rem;
+        }
+
+        .technologies-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+            text-transform: uppercase;
+        }
+
+        .technologies-header p {
+            color: var(--gray-text);
+            font-size: 1.1rem;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .tech-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .tech-card {
+            background: rgba(255,255,255,0.05);
+            padding: 2rem;
+            border-radius: 4px;
+            transition: transform 0.3s ease;
+        }
+
+        .tech-card:hover {
+            transform: translateY(-10px);
+        }
+
+        .tech-icon {
+            font-size: 3rem;
+            color: var(--accent-color);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-card h3 {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+
+        .tech-card p {
+            color: var(--gray-text);
+            margin-bottom: 1.5rem;
+        }
+
+        .tech-features {
+            list-style: none;
+        }
+
+        .tech-features li {
+            color: var(--gray-text);
+            margin-bottom: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .tech-features li i {
+            color: var(--accent-color);
+            margin-right: 0.5rem;
+            font-size: 0.8rem;
+        }
+
+        @media (max-width: 768px) {
+            .tech-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">Vishwa FX</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="projects.html">Project</a></li>
+                <li><a href="technologies.html" class="active">Technologies</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="technologies">
+            <div class="technologies-content">
+                <div class="technologies-header">
+                    <h2>Our Technologies</h2>
+                    <p>Discover the cutting-edge tools and software we use to create stunning visual effects</p>
+                </div>
+                <div class="tech-grid">
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-water"></i>
+                        </div>
+                        <h3>Fluid Simulation</h3>
+                        <p>Advanced fluid dynamics simulation for realistic water, smoke, and fire effects.</p>
+                        <ul class="tech-features">
+                            <li><i class="fas fa-check"></i> Houdini FLIP/PIC Solver</li>
+                            <li><i class="fas fa-check"></i> Real-time Preview</li>
+                            <li><i class="fas fa-check"></i> Custom Velocity Fields</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-atom"></i>
+                        </div>
+                        <h3>Particle Systems</h3>
+                        <p>High-performance particle systems for complex visual effects and simulations.</p>
+                        <ul class="tech-features">
+                            <li><i class="fas fa-check"></i> GPU-Accelerated</li>
+                            <li><i class="fas fa-check"></i> Custom Forces</li>
+                            <li><i class="fas fa-check"></i> Advanced Collision</li>
+                        </ul>
+                    </div>
+                    <div class="tech-card">
+                        <div class="tech-icon">
+                            <i class="fas fa-cubes"></i>
+                        </div>
+                        <h3>Destruction FX</h3>
+                        <p>Realistic destruction and fracture simulations for dynamic effects.</p>
+                        <ul class="tech-features">
+                            <li><i class="fas fa-check"></i> Voronoi Fracturing</li>
+                            <li><i class="fas fa-check"></i> Rigid Body Dynamics</li>
+                            <li><i class="fas fa-check"></i> Custom Constraints</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

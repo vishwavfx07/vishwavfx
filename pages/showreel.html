@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Showreel - Vishwa FX</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .showreel-page {
+            background: linear-gradient(to bottom, #0a0a0a, #1a1a1a);
+            color: #ffffff;
+            min-height: 100vh;
+        }
+
+        .showreel-header {
+            text-align: center;
+            padding: 4rem 5% 2rem;
+            background: linear-gradient(to bottom, rgba(0,0,0,0.7), transparent);
+        }
+
+        .showreel-header h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .showreel-header p {
+            font-size: 1.2rem;
+            color: #bdc3c7;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .showreel-container {
+            padding: 2rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .video-player {
+            position: relative;
+            width: 100%;
+            padding-bottom: 56.25%;
+            margin-bottom: 4rem;
+            background: #000;
+            border-radius: 16px;
+            overflow: hidden;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.3);
+        }
+
+        .video-player video {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .video-controls {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), transparent);
+            padding: 1.5rem;
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            z-index: 2;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .video-player:hover .video-controls {
+            opacity: 1;
+        }
+
+        .video-controls button {
+            background: rgba(255,255,255,0.1);
+            border: none;
+            color: white;
+            cursor: pointer;
+            font-size: 1.2rem;
+            padding: 0.8rem;
+            border-radius: 50%;
+            transition: all 0.3s ease;
+        }
+
+        .video-controls button:hover {
+            background: rgba(255,255,255,0.2);
+            transform: scale(1.1);
+        }
+
+        .video-progress {
+            flex: 1;
+            height: 4px;
+            background: rgba(255,255,255,0.2);
+            border-radius: 2px;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .video-progress-bar {
+            position: absolute;
+            left: 0;
+            top: 0;
+            height: 100%;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            border-radius: 2px;
+        }
+
+        .video-time {
+            color: white;
+            font-size: 0.9rem;
+            min-width: 100px;
+            text-align: right;
+        }
+
+        .project-breakdown {
+            margin-top: 4rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .breakdown-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .breakdown-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .breakdown-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .breakdown-item {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 12px;
+            transition: transform 0.3s ease;
+            border: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .breakdown-item:hover {
+            transform: translateY(-5px);
+            background: rgba(255,255,255,0.15);
+        }
+
+        .breakdown-item h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+            font-size: 1.5rem;
+        }
+
+        .breakdown-item p {
+            color: #bdc3c7;
+            margin-bottom: 1rem;
+            line-height: 1.6;
+        }
+
+        .breakdown-item ul {
+            list-style: none;
+            padding: 0;
+        }
+
+        .breakdown-item li {
+            color: #bdc3c7;
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+
+        .breakdown-item li::before {
+            content: '•';
+            color: #2ecc71;
+            position: absolute;
+            left: 0;
+        }
+
+        .timeline {
+            margin-top: 4rem;
+            background: rgba(255,255,255,0.05);
+            border-radius: 16px;
+            padding: 2rem;
+            backdrop-filter: blur(10px);
+        }
+
+        .timeline-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .timeline-header h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(to right, #3498db, #2ecc71);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .timeline-item {
+            display: flex;
+            margin-bottom: 2rem;
+            position: relative;
+            padding-left: 2rem;
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: 0;
+            top: 0;
+            bottom: 0;
+            width: 2px;
+            background: linear-gradient(to bottom, #3498db, #2ecc71);
+        }
+
+        .timeline-time {
+            width: 100px;
+            padding-right: 2rem;
+            color: #3498db;
+            font-weight: 500;
+        }
+
+        .timeline-content {
+            flex: 1;
+        }
+
+        .timeline-content h4 {
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            font-size: 1.2rem;
+        }
+
+        .timeline-content p {
+            color: #bdc3c7;
+        }
+
+        @media (max-width: 768px) {
+            .showreel-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .breakdown-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .timeline-item {
+                flex-direction: column;
+            }
+
+            .timeline-time {
+                width: 100%;
+                padding-right: 0;
+                margin-bottom: 0.5rem;
+            }
+        }
+    </style>
+</head>
+<body class="showreel-page">
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">Vishwa FX</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="showreel.html" class="active">Showreel</a></li>
+                <li><a href="resources.html">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <div class="showreel-header">
+            <h1>Showreel 2024</h1>
+            <p>A showcase of our latest visual effects work and technical achievements</p>
+        </div>
+
+        <div class="showreel-container">
+            <div class="video-player">
+                <video id="showreel-video" autoplay muted loop playsinline>
+                    <source src="../assets/videos/hero-video.mp4" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+                <div class="video-controls">
+                    <button id="play-pause"><i class="fas fa-pause"></i></button>
+                    <div class="video-progress">
+                        <div class="video-progress-bar"></div>
+                    </div>
+                    <div class="video-time">0:00 / 0:00</div>
+                    <button id="mute"><i class="fas fa-volume-mute"></i></button>
+                    <button id="fullscreen"><i class="fas fa-expand"></i></button>
+                </div>
+            </div>
+
+            <div class="project-breakdown">
+                <div class="breakdown-header">
+                    <h2>Project Breakdown</h2>
+                    <p>Detailed analysis of the visual effects showcased in the showreel</p>
+                </div>
+                <div class="breakdown-grid">
+                    <div class="breakdown-item">
+                        <h3>Fluid Simulations</h3>
+                        <p>Advanced fluid dynamics and particle systems for realistic water and smoke effects.</p>
+                        <ul>
+                            <li>Ocean dynamics with custom wave patterns</li>
+                            <li>Smoke and fire simulation with realistic physics</li>
+                            <li>Liquid interactions and surface tension</li>
+                        </ul>
+                    </div>
+                    <div class="breakdown-item">
+                        <h3>Destruction Effects</h3>
+                        <p>Complex destruction simulations with dynamic fracturing and debris.</p>
+                        <ul>
+                            <li>Building collapse with structural integrity</li>
+                            <li>Material shattering and fragmentation</li>
+                            <li>Debris dynamics and particle systems</li>
+                        </ul>
+                    </div>
+                    <div class="breakdown-item">
+                        <h3>Atmospheric Effects</h3>
+                        <p>Environmental effects that enhance scene atmosphere and mood.</p>
+                        <ul>
+                            <li>Volumetric clouds with dynamic lighting</li>
+                            <li>Weather systems and precipitation</li>
+                            <li>Atmospheric scattering and fog</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="timeline">
+                <div class="timeline-header">
+                    <h2>Shot Timeline</h2>
+                    <p>Detailed breakdown of each sequence in the showreel</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">00:00</div>
+                    <div class="timeline-content">
+                        <h4>Opening Sequence</h4>
+                        <p>Dynamic fluid simulation showcasing advanced water and particle interactions with custom shaders</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">00:15</div>
+                    <div class="timeline-content">
+                        <h4>Destruction Sequence</h4>
+                        <p>Large-scale building destruction with detailed debris simulation and particle effects</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-time">00:30</div>
+                    <div class="timeline-content">
+                        <h4>Atmospheric Effects</h4>
+                        <p>Volumetric cloud formations and weather system demonstrations with dynamic lighting</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact</h3>
+                <p>Email: contact@vishwafx.com</p>
+                <p>Location: Los Angeles, CA</p>
+            </div>
+            <div class="footer-section">
+                <h3>Social</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-vimeo"></i></a>
+                    <a href="#"><i class="fab fa-artstation"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vishwa FX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const video = document.getElementById('showreel-video');
+            const playPauseBtn = document.getElementById('play-pause');
+            const muteBtn = document.getElementById('mute');
+            const fullscreenBtn = document.getElementById('fullscreen');
+            const progressBar = document.querySelector('.video-progress-bar');
+            const timeDisplay = document.querySelector('.video-time');
+            const videoPlayer = document.querySelector('.video-player');
+
+            // Play/Pause
+            playPauseBtn.addEventListener('click', () => {
+                if (video.paused) {
+                    video.play();
+                    playPauseBtn.innerHTML = '<i class="fas fa-pause"></i>';
+                } else {
+                    video.pause();
+                    playPauseBtn.innerHTML = '<i class="fas fa-play"></i>';
+                }
+            });
+
+            // Mute
+            muteBtn.addEventListener('click', () => {
+                if (video.muted) {
+                    video.muted = false;
+                    muteBtn.innerHTML = '<i class="fas fa-volume-up"></i>';
+                } else {
+                    video.muted = true;
+                    muteBtn.innerHTML = '<i class="fas fa-volume-mute"></i>';
+                }
+            });
+
+            // Fullscreen
+            fullscreenBtn.addEventListener('click', () => {
+                if (!document.fullscreenElement) {
+                    videoPlayer.requestFullscreen();
+                } else {
+                    document.exitFullscreen();
+                }
+            });
+
+            // Progress bar
+            video.addEventListener('timeupdate', () => {
+                const progress = (video.currentTime / video.duration) * 100;
+                progressBar.style.width = progress + '%';
+                
+                const minutes = Math.floor(video.currentTime / 60);
+                const seconds = Math.floor(video.currentTime % 60);
+                const totalMinutes = Math.floor(video.duration / 60);
+                const totalSeconds = Math.floor(video.duration % 60);
+                
+                timeDisplay.textContent = `${minutes}:${seconds.toString().padStart(2, '0')} / ${totalMinutes}:${totalSeconds.toString().padStart(2, '0')}`;
+            });
+
+            // Click on progress bar
+            document.querySelector('.video-progress').addEventListener('click', (e) => {
+                const rect = e.target.getBoundingClientRect();
+                const pos = (e.clientX - rect.left) / rect.width;
+                video.currentTime = pos * video.duration;
+            });
+
+            // Loading spinner
+            video.addEventListener('waiting', () => {
+                videoPlayer.classList.add('loading');
+            });
+
+            video.addEventListener('canplay', () => {
+                videoPlayer.classList.remove('loading');
+            });
+        });
+    </script>
+</body>
+</html> 

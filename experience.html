@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Experience - Vishwa FX Artist</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700;800&family=Space+Mono:wght@400;700&family=Orbitron:wght@400;500;600;700;800;900&family=Syne:wght@400;500;600;700;800&family=Chakra+Petch:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Outfit:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #000000;
+            --secondary-color: #ffffff;
+            --accent-color: #00f2fe;
+            --accent-color-2: #4facfe;
+            --text-color: #ffffff;
+            --gray-text: #ffffff;
+            --heading-font: 'Inter', sans-serif;
+            --body-font: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: var(--body-font);
+            color: var(--text-color);
+            background: var(--primary-color);
+            line-height: 1.6;
+            font-weight: 400;
+            letter-spacing: 0.01em;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+        }
+
+        /* Header Styles */
+        header {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            z-index: 1000;
+            background: rgba(0, 0, 0, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 0;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 5%;
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        .logo a {
+            font-size: 1.4rem;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-family: var(--heading-font);
+            text-transform: uppercase;
+            position: relative;
+            display: inline-block;
+            padding: 0.5rem 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .logo a:hover {
+            color: var(--accent-color);
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2.5rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            font-size: 0.95rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            color: var(--secondary-color);
+            text-decoration: none;
+            transition: color 0.3s ease;
+            text-transform: uppercase;
+            font-family: var(--heading-font);
+        }
+
+        .nav-links a:hover {
+            color: var(--accent-color);
+        }
+
+        .back-button {
+            display: inline-block;
+            padding: 1.2rem 3rem;
+            background: transparent;
+            color: var(--secondary-color);
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 0;
+            transition: all 0.3s ease;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            font-size: 0.95rem;
+            border: 2px solid var(--accent-color);
+            margin-top: 4rem;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .back-button:hover {
+            background: var(--accent-color);
+            color: var(--primary-color);
+            transform: translateY(-2px);
+        }
+
+        /* Experience Section Styles */
+        .experience {
+            padding: 15rem 5% 8rem;
+            background: #000;
+            margin: 0;
+            position: relative;
+        }
+
+        .experience-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 4rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            line-height: 1.1;
+            color: var(--secondary-color);
+            font-family: 'Space Grotesk', sans-serif;
+            margin-bottom: 6rem;
+            text-transform: none;
+        }
+
+        .experience-timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 2rem;
+        }
+
+        .experience-item {
+            position: relative;
+            margin-bottom: 3rem;
+            padding: 3rem;
+            background: rgba(255, 255, 255, 0.02);
+            border-radius: 0;
+            transition: all 0.3s ease;
+            border-left: 4px solid var(--accent-color);
+        }
+
+        .experience-item:hover {
+            background: rgba(255, 255, 255, 0.03);
+            transform: translateX(10px);
+        }
+
+        .experience-date {
+            font-size: 1.1rem;
+            color: var(--accent-color);
+            margin-bottom: 1rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            font-family: 'Space Mono', monospace;
+        }
+
+        .experience-title {
+            font-size: 2.2rem;
+            color: var(--secondary-color);
+            margin-bottom: 0.5rem;
+            font-family: 'Space Grotesk', sans-serif;
+            font-weight: 700;
+            letter-spacing: -0.02em;
+        }
+
+        .experience-company {
+            font-size: 1.4rem;
+            color: var(--text-color);
+            margin-bottom: 2rem;
+            opacity: 0.8;
+            font-weight: 500;
+            font-family: 'Space Grotesk', sans-serif;
+        }
+
+        .experience-description {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: var(--text-color);
+            opacity: 0.9;
+            font-family: 'Inter', sans-serif;
+            font-weight: 400;
+            max-width: 800px;
+            list-style-type: none;
+            padding-left: 0;
+        }
+
+        .experience-description li {
+            position: relative;
+            padding-left: 1.5rem;
+            margin-bottom: 0.8rem;
+        }
+
+        .experience-description li::before {
+            content: '•';
+            color: var(--accent-color);
+            position: absolute;
+            left: 0;
+            font-size: 1.4rem;
+            line-height: 1;
+        }
+
+        @media (max-width: 768px) {
+            .section-title {
+                font-size: 3rem;
+                margin-bottom: 4rem;
+            }
+
+            .experience-item {
+                padding: 2rem;
+            }
+
+            .experience-title {
+                font-size: 1.8rem;
+            }
+
+            .experience-company {
+                font-size: 1.2rem;
+            }
+
+            .experience-description {
+                font-size: 1.1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="index.html">Vishwa FX Artist</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="index.html#projects">Projects</a></li>
+                <li><a href="index.html#showreel">Latest Work</a></li>
+                <li><a href="index.html#contact">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="experience">
+            <div class="experience-container">
+                <h2 class="section-title">Experience</h2>
+                <div class="experience-timeline">
+                    <div class="experience-item">
+                        <div class="experience-date">2024 - Present</div>
+                        <h3 class="experience-title">FX Artist</h3>
+                        <div class="experience-company">85FX</div>
+                        <ul class="experience-description">
+                            <li>Creating high-quality visual effects and simulations for film and television projects</li>
+                            <li>Specializing in dynamic effects, particle systems, and environmental simulations</li>
+                            <li>Working with Houdini for complex fluid dynamics, smoke, fire, and destruction effects</li>
+                            <li>Collaborating with directors and VFX supervisors to achieve desired visual outcomes</li>
+                            <li>Developing efficient workflows and pipeline improvements</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-date">2022 - 2023</div>
+                        <h3 class="experience-title">FX Artist | 3D Modeling | Texturing</h3>
+                        <div class="experience-company">Adinn Advertising</div>
+                        <ul class="experience-description">
+                            <li>Led visual effects production for advertising campaigns</li>
+                            <li>Created dynamic simulations and 3D assets for various projects</li>
+                            <li>Developed expertise in Houdini for complex particle systems</li>
+                            <li>Produced high-quality 3D models and textures</li>
+                            <li>Managed workflow optimization and pipeline improvements</li>
+                        </ul>
+                    </div>
+                    <div class="experience-item">
+                        <div class="experience-date">2022</div>
+                        <h3 class="experience-title">FX Artist</h3>
+                        <div class="experience-company">Xentrix</div>
+                        <ul class="experience-description">
+                            <li>Completed 3-month intensive internship in visual effects production</li>
+                            <li>Gained hands-on experience with Houdini for particle systems</li>
+                            <li>Assisted senior artists in developing visual effects</li>
+                            <li>Learned industry-standard workflows and production pipelines</li>
+                            <li>Worked on basic simulations and effects creation</li>
+                        </ul>
+                    </div>
+                </div>
+                <div style="text-align: center;">
+                    <a href="index.html" class="back-button">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </main>
+</body>
+</html> 

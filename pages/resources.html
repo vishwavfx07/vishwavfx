@@ -1,0 +1,185 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - Vishwa FX</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        .resources-container {
+            padding: 6rem 5%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .resource-section {
+            margin-bottom: 4rem;
+        }
+
+        .resource-section h2 {
+            color: #2c3e50;
+            margin-bottom: 2rem;
+            font-size: 2rem;
+        }
+
+        .resource-list {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .resource-item {
+            background: #fff;
+            padding: 2rem;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.1);
+            transition: all 0.3s ease;
+        }
+
+        .resource-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+
+        .resource-item h3 {
+            color: #3498db;
+            margin-bottom: 1rem;
+        }
+
+        .resource-item p {
+            color: #666;
+            margin-bottom: 1.5rem;
+        }
+
+        .resource-link {
+            display: inline-block;
+            color: #3498db;
+            text-decoration: none;
+            font-weight: 500;
+            transition: all 0.3s ease;
+        }
+
+        .resource-link:hover {
+            color: #2c3e50;
+            transform: translateX(5px);
+        }
+
+        .resource-link i {
+            margin-left: 0.5rem;
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav>
+            <div class="logo">
+                <a href="../index.html">Vishwa FX</a>
+            </div>
+            <ul class="nav-links">
+                <li><a href="../index.html">Home</a></li>
+                <li><a href="showreel.html">Showreel</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contact.html">Contact</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <main>
+        <section class="hero">
+            <h1>FX Resources</h1>
+            <p>Tools, tutorials, and materials to help you master visual effects</p>
+        </section>
+
+        <div class="resources-container">
+            <section class="resource-section">
+                <h2>Learning Materials</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Houdini Fundamentals</h3>
+                        <p>Essential tutorials for mastering Houdini's core features and workflows.</p>
+                        <a href="#" class="resource-link">View Tutorials <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Particle Systems</h3>
+                        <p>Comprehensive guide to creating and controlling particle effects.</p>
+                        <a href="#" class="resource-link">View Guide <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Fluid Simulation</h3>
+                        <p>Advanced techniques for realistic fluid and water simulations.</p>
+                        <a href="#" class="resource-link">View Techniques <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-section">
+                <h2>Tools & Software</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>Houdini</h3>
+                        <p>Industry-standard software for procedural modeling and effects.</p>
+                        <a href="#" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Maya</h3>
+                        <p>Powerful 3D animation and modeling software with FX capabilities.</p>
+                        <a href="#" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Nuke</h3>
+                        <p>Professional compositing software for post-production.</p>
+                        <a href="#" class="resource-link">Learn More <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+
+            <section class="resource-section">
+                <h2>Community Resources</h2>
+                <div class="resource-list">
+                    <div class="resource-item">
+                        <h3>FX Forums</h3>
+                        <p>Connect with other FX artists and share knowledge.</p>
+                        <a href="#" class="resource-link">Join Community <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Asset Libraries</h3>
+                        <p>Access to high-quality FX assets and templates.</p>
+                        <a href="#" class="resource-link">Browse Assets <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                    <div class="resource-item">
+                        <h3>Workshops</h3>
+                        <p>Live workshops and training sessions with industry experts.</p>
+                        <a href="#" class="resource-link">View Schedule <i class="fas fa-arrow-right"></i></a>
+                    </div>
+                </div>
+            </section>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Me</h3>
+                <p>Email: vishwa@example.com</p>
+                <p>Phone: +1 234 567 890</p>
+            </div>
+            <div class="footer-section">
+                <h3>Follow Me</h3>
+                <div class="social-links">
+                    <a href="#"><i class="fab fa-artstation"></i></a>
+                    <a href="#"><i class="fab fa-linkedin"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-vimeo"></i></a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Vishwa FX. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="../script.js"></script>
+</body>
+</html> 
