@@ -568,26 +568,7 @@
         }
 
         .project-label {
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            right: 0;
-            background: linear-gradient(transparent, rgba(0, 0, 0, 0.8));
-            color: var(--secondary-color);
-            padding: 2rem 1.5rem 1.5rem;
-            font-size: 1.2rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            opacity: 0;
-            transform: translateY(20px);
-            transition: all 0.3s ease;
-            z-index: 2;
-        }
-
-        .project-card:hover .project-label {
-            opacity: 1;
-            transform: translateY(0);
+            display: none;
         }
 
         .project-card {
@@ -883,10 +864,7 @@
                 max-width: 400px;
             }
             
-            .project-label {
-                font-size: 1rem;
-                padding: 1.5rem 1rem 1rem;
-            }
+
             
             /* Technologies Section Mobile Fixes */
             .tech-items {
@@ -993,10 +971,7 @@
                 max-width: 350px;
             }
             
-            .project-label {
-                font-size: 0.9rem;
-                padding: 1.2rem 0.8rem 0.8rem;
-            }
+
             
             /* Technologies Section Small Mobile Fixes */
             .tech-items {
@@ -1514,25 +1489,20 @@
             <div class="projects-grid">
                 <div class="project-card">
                     <img src="assets/images/projects/fire-effects.jpg" alt="Fire Effects">
-                    <div class="project-label">Fire Effects</div>
                 </div>
                 <div class="project-card">
                     <img src="assets/images/projects/ocean-simulation.jpg" alt="Ocean Simulation">
-                    <div class="project-label">Ocean Simulation</div>
                 </div>
                 <div class="project-card">
                     <img src="assets/images/projects/Destruction-FX.jpg" alt="Destruction FX">
-                    <div class="project-label">Destruction FX</div>
                 </div>
                 <div class="project-card">
                     <img src="assets/images/projects/Particle Systems.jpg" alt="Particle Systems">
-                    <div class="project-label">Particle Systems</div>
                 </div>
                 
                 <!-- To add a new project image, copy this template and update the src and alt attributes:
                 <div class="project-card">
                     <img src="assets/images/projects/your-new-image.jpg" alt="Your Project Name">
-                    <div class="project-label">Your Project Name</div>
                 </div>
                 -->
             </div>
