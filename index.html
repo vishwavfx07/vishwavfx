@@ -198,6 +198,9 @@
             object-fit: cover;
             position: relative;
             z-index: 1;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .video-overlay {
@@ -389,6 +392,9 @@
             height: auto;
             display: block;
             object-fit: cover;
+            -webkit-user-select: none;
+            -webkit-touch-callout: none;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .video-wrapper:hover .video-overlay {
@@ -940,6 +946,20 @@
             .about-text p {
                 font-size: 1rem;
             }
+            
+            /* Mobile video optimizations */
+            .video-container video,
+            .video-wrapper video {
+                object-fit: cover;
+                -webkit-transform: translateZ(0);
+                transform: translateZ(0);
+            }
+            
+            .video-play-button {
+                width: 50px !important;
+                height: 50px !important;
+                font-size: 1.2rem !important;
+            }
         }
         
         /* ===== SMALL MOBILE LAYOUT (320px - 480px) ===== */
@@ -1057,6 +1077,13 @@
                 .tech-item span {
                     font-size: 0.4rem;
                     padding: 0 0.1rem;
+                }
+                
+                /* Extra small mobile video optimizations */
+                .video-play-button {
+                    width: 40px !important;
+                    height: 40px !important;
+                    font-size: 0.9rem !important;
                 }
             }
         }
@@ -1670,17 +1697,78 @@
 
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            const video = document.querySelector('.video-container video');
+            const videos = document.querySelectorAll('video');
             const navLinks = document.querySelectorAll('.nav-links a');
             const mobileMenuToggle = document.querySelector('.mobile-menu-toggle');
             const navLinksContainer = document.querySelector('.nav-links');
 
-            // Ensure video plays on mobile devices
-            if (video) {
-                video.play().catch(function(error) {
-                    console.log("Video autoplay failed:", error);
+            // Enhanced video autoplay for mobile devices
+            function playVideos() {
+                videos.forEach(function(video) {
+                    // Set video properties for mobile compatibility
+                    video.muted = true;
+                    video.playsInline = true;
+                    video.setAttribute('playsinline', '');
+                    video.setAttribute('webkit-playsinline', '');
+                    
+                    // Try to play the video
+                    const playPromise = video.play();
+                    
+                    if (playPromise !== undefined) {
+                        playPromise.catch(function(error) {
+                            console.log("Video autoplay failed:", error);
+                            // Add play button for mobile if autoplay fails
+                            addPlayButton(video);
+                        });
+                    }
                 });
             }
+
+            // Add play button for videos that fail to autoplay
+            function addPlayButton(video) {
+                const container = video.parentElement;
+                const playButton = document.createElement('div');
+                playButton.className = 'video-play-button';
+                playButton.innerHTML = '<i class="fas fa-play"></i>';
+                playButton.style.cssText = `
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    background: rgba(0, 242, 254, 0.8);
+                    color: #000;
+                    width: 60px;
+                    height: 60px;
+                    border-radius: 50%;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    cursor: pointer;
+                    z-index: 10;
+                    font-size: 1.5rem;
+                    transition: all 0.3s ease;
+                `;
+                
+                playButton.addEventListener('click', function() {
+                    video.play();
+                    this.style.display = 'none';
+                });
+                
+                container.style.position = 'relative';
+                container.appendChild(playButton);
+            }
+
+            // Initialize video playback
+            playVideos();
+
+            // Handle user interaction to enable video playback
+            document.addEventListener('touchstart', function() {
+                playVideos();
+            }, { once: true });
+
+            document.addEventListener('click', function() {
+                playVideos();
+            }, { once: true });
 
             // Mobile menu toggle
             if (mobileMenuToggle) {
