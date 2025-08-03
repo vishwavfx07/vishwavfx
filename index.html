@@ -529,6 +529,7 @@
             cursor: pointer;
             display: flex;
             flex-direction: column;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .project-card:hover {
@@ -858,32 +859,64 @@
             .section-title {
                 font-size: 2.2rem;
                 margin-bottom: 2rem;
+                text-align: center;
             }
             
             .projects, .showreel, .technologies, .about, .contact {
-                padding: 8rem 5% 3rem;
+                padding: 6rem 3% 3rem;
             }
             
+            /* Projects Section Mobile Fixes */
             .projects-grid {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-                padding: 0 1rem;
+                gap: 1.5rem;
+                padding: 0;
                 align-items: start;
+                margin: 0 auto;
+                max-width: 100%;
             }
             
             .project-card {
-                height: 400px;
+                height: 350px;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 400px;
             }
             
+            .project-label {
+                font-size: 1rem;
+                padding: 1.5rem 1rem 1rem;
+            }
+            
+            /* Technologies Section Mobile Fixes */
             .tech-items {
                 grid-template-columns: repeat(2, 1fr);
-                gap: 1.5rem;
+                gap: 1rem;
                 margin-top: 2rem;
+                padding: 0 1rem;
+                max-width: 100%;
+            }
+            
+            .tech-item {
+                padding: 0.8rem;
+                min-width: 80px;
+                height: 80px;
+            }
+            
+            .tech-item i {
+                font-size: 1.2rem;
+                margin-bottom: 0.3rem;
+            }
+            
+            .tech-item span {
+                font-size: 0.6rem;
+                padding: 0 0.3rem;
             }
             
             .contact-content {
                 flex-direction: column;
                 gap: 2rem;
+                padding: 0 1rem;
             }
             
             .hero-content .button-container {
@@ -927,33 +960,89 @@
         @media (max-width: 480px) {
             .hero h1 {
                 font-size: 2rem;
+                line-height: 1.1;
             }
             
             .hero p {
                 font-size: 0.9rem;
+                margin-bottom: 1.5rem;
             }
             
             .section-title {
                 font-size: 1.8rem;
+                margin-bottom: 1.5rem;
+                text-align: center;
+            }
+            
+            .projects, .showreel, .technologies, .about, .contact {
+                padding: 5rem 2% 2rem;
+            }
+            
+            /* Projects Section Small Mobile Fixes */
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 1rem;
+                padding: 0;
+                margin: 0 auto;
             }
             
             .project-card {
-                height: 350px;
+                height: 300px;
+                margin: 0 auto;
+                width: 100%;
+                max-width: 350px;
             }
             
+            .project-label {
+                font-size: 0.9rem;
+                padding: 1.2rem 0.8rem 0.8rem;
+            }
+            
+            /* Technologies Section Small Mobile Fixes */
             .tech-items {
-                grid-template-columns: 1fr;
-                gap: 1rem;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 0.8rem;
+                margin-top: 1.5rem;
+                padding: 0 0.5rem;
+            }
+            
+            .tech-item {
+                padding: 0.6rem;
+                min-width: 70px;
+                height: 70px;
+            }
+            
+            .tech-item i {
+                font-size: 1rem;
+                margin-bottom: 0.2rem;
+            }
+            
+            .tech-item span {
+                font-size: 0.5rem;
+                padding: 0 0.2rem;
+                line-height: 1.2;
             }
             
             .cta-button {
-                width: 180px;
-                padding: 0.7rem 1.2rem;
+                width: 160px;
+                padding: 0.6rem 1rem;
                 font-size: 0.8rem;
             }
             
             .logo a {
-                font-size: 1rem;
+                font-size: 0.9rem;
+            }
+            
+            .hero-content {
+                padding: 0 1rem;
+            }
+            
+            .about-text {
+                padding: 0 0.5rem;
+            }
+            
+            .about-text p {
+                font-size: 0.9rem;
             }
         }
 
@@ -1278,6 +1367,8 @@
             overflow: visible;
             border: 1px solid rgba(255, 255, 255, 0.1);
             animation: pulse 2s infinite;
+            cursor: pointer;
+            -webkit-tap-highlight-color: transparent;
         }
 
         .tech-item:hover {
